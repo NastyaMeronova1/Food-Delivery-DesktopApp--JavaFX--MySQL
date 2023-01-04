@@ -1,6 +1,5 @@
 package com.example.food_delivery;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,10 +18,6 @@ import static com.example.food_delivery.DataBase.DatabaseHandler.*;
 
 
 public class controller_delivery_worker {
-
-
-    @FXML
-    ObservableList<Delivery> info;
 
 
     @FXML
@@ -62,17 +57,16 @@ public class controller_delivery_worker {
         column_telephone_number.setCellValueFactory(new PropertyValueFactory<>("telephone_number"));
         column_description.setCellValueFactory(new PropertyValueFactory<>("description"));
         column_summ.setCellValueFactory(new PropertyValueFactory<>("summ"));
-        info = getDataRequest();
-        table_1.setItems(info);
+
+        table_1.setItems(getDataRequest());
 
         column_id_2.setCellValueFactory(new PropertyValueFactory<>("idrequest"));
         column_name_2.setCellValueFactory(new PropertyValueFactory<>("name"));
         column_telephone_number_1.setCellValueFactory(new PropertyValueFactory<>("telephone_number"));
         column_summ_1.setCellValueFactory(new PropertyValueFactory<>("summ"));
-        info = getDataRequest_2();
-        table_2.setItems(info);
-    }
 
+        table_2.setItems(getDataRequest_2());
+    }
 
 
     @FXML

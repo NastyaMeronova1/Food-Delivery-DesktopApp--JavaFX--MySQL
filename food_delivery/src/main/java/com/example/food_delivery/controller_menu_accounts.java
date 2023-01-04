@@ -23,9 +23,6 @@ public class controller_menu_accounts {
 
 
     @FXML
-    ObservableList<User> inform;
-
-    @FXML
     private Button change_role_to_user;
     @FXML
     private Button change_role_to_worker;
@@ -56,8 +53,7 @@ public class controller_menu_accounts {
         column_password.setCellValueFactory(new PropertyValueFactory<>("password"));
         column_name.setCellValueFactory(new PropertyValueFactory<>("name"));
         column_role.setCellValueFactory(new PropertyValueFactory<>("role"));
-        inform = DatabaseHandler.getDataUser();
-        table.setItems(inform);
+        table.setItems(DatabaseHandler.getDataUser());
     }
 
 

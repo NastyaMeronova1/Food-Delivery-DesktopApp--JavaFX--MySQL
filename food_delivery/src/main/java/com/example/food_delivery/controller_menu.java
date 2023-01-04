@@ -237,16 +237,16 @@ public class controller_menu {
             }
 
             if (Food.online == 1) {
-                Food.desc_1 = "\n\n" + title.getText() + desc;
+                Food.desc_1 = "\n\n" + title.getText() + ":" + desc;
                 Food.summa_1 = summa;
             } else if (Food.online == 2) {
-                Food.desc_2 = "\n\n" + title.getText() + desc;
+                Food.desc_2 = "\n\n" + title.getText() + ":" + desc;
                 Food.summa_2 = summa;
             } else if (Food.online == 3) {
-                Food.desc_3 = "\n\n" + title.getText() + desc;
+                Food.desc_3 = "\n\n" + title.getText() + ":" + desc;
                 Food.summa_3 = summa;
             } else if (Food.online == 4) {
-                Food.desc_4 = "\n\n" + title.getText() + desc;
+                Food.desc_4 = "\n\n" + title.getText() + ":" + desc;
                 Food.summa_4 = summa;
             }
             openNewScene("menu-delivery.fxml");
