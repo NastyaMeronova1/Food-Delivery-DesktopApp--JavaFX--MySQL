@@ -12,10 +12,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import java.sql.SQLException;
 
 import static com.example.food_delivery.DataBase.DatabaseHandler.*;
-import static com.example.food_delivery.new_window.openNewScene;
+import static com.example.food_delivery.newWindow.openNewScene;
 
 
-public class controller_delivery_worker {
+public class RequestsInfo {
 
     @FXML
     private TableColumn<Delivery, String> column_description;
@@ -45,19 +45,19 @@ public class controller_delivery_worker {
     private TableView<Delivery> table_2;
 
     @FXML
-    void already_did(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void changeStatus(ActionEvent event) throws SQLException, ClassNotFoundException {
         ChangeRequest(enter_id.getText().trim());
         UpdateTables();
     }
 
     @FXML
-    void back(ActionEvent event) {
+    void buttonMenu(ActionEvent event) {
         menu.getScene().getWindow().hide();
-        openNewScene("main.fxml", "Доставка еды");
+        openNewScene("Start.fxml", "Доставка еды");
     }
 
     @FXML
-    void delete_everything(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void deleteSecondTable(ActionEvent event) throws SQLException, ClassNotFoundException {
         DeleteAll();
         UpdateTables();
     }
@@ -76,7 +76,6 @@ public class controller_delivery_worker {
         column_summ_1.setCellValueFactory(new PropertyValueFactory<>("summ"));
         table_2.setItems(getDataRequest_2());
     }
-
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {

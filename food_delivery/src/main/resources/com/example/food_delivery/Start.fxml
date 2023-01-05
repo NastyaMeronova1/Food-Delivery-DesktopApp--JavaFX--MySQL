@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0"
+            prefWidth="500.0" style="-fx-background-color: #FFFFCC;" stylesheets="@Styles.css"
+            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.food_delivery.Controllers.StartWindow">
+    <Text fill="#151515" layoutX="138.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Главное меню"
+          textAlignment="CENTER">
+        <font>
+            <Font name="Georgia" size="30.0"/>
+        </font>
+    </Text>
+    <Button fx:id="registration" focusTraversable="false" layoutX="121.0" layoutY="156.0" mnemonicParsing="false"
+            onAction="#buttonRegistration" prefHeight="40.0" prefWidth="234.0"
+            style="-fx-background-radius: 6; -fx-background-color: #ccccff; -fx-border-color: black; -fx-border-radius: 6;"
+            text="Зарегистрироваться">
+        <font>
+            <Font name="Century" size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="request_status" focusTraversable="false" layoutX="121.0" layoutY="210.0" mnemonicParsing="false"
+            onAction="#buttonCheckStatus" prefHeight="40.0" prefWidth="234.0"
+            style="-fx-background-radius: 6; -fx-background-color: #ccccff; -fx-border-color: black; -fx-border-radius: 6;"
+            text="Узнать статус доставки">
+        <font>
+            <Font name="Century" size="14.0"/>
+        </font>
+    </Button>
+    <Button focusTraversable="false" layoutX="165.0" layoutY="280.0" mnemonicParsing="false" onAction="#exitProgram"
+            prefHeight="34.0" prefWidth="145.0"
+            style="-fx-background-radius: 6; -fx-background-color: #ccccff; -fx-border-color: black; -fx-border-radius: 6;"
+            text="Выход">
+        <font>
+            <Font name="Century" size="14.0"/>
+        </font>
+    </Button>
+    <Button fx:id="authorisation" focusTraversable="false" layoutX="121.0" layoutY="101.0" mnemonicParsing="false"
+            onAction="#buttonAuthorisation" prefHeight="40.0" prefWidth="234.0"
+            style="-fx-background-radius: 6; -fx-background-color: #ccccff; -fx-border-color: black; -fx-border-radius: 6;"
+            text="Авторизоваться">
+        <font>
+            <Font name="Century" size="14.0"/>
+        </font>
+    </Button>
+</AnchorPane>

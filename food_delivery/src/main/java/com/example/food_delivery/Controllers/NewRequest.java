@@ -12,9 +12,9 @@ import java.sql.SQLException;
 
 import static com.example.food_delivery.DataBase.DatabaseHandler.getRequestId;
 import static com.example.food_delivery.DataBase.DatabaseHandler.signUpRequest;
-import static com.example.food_delivery.new_window.openNewScene;
+import static com.example.food_delivery.newWindow.openNewScene;
 
-public class controller_delivery {
+public class NewRequest {
 
 
     @FXML
@@ -44,39 +44,39 @@ public class controller_delivery {
     private Label summ;
 
     @FXML
-    void first_dish(ActionEvent event) {
+    void firstDish(ActionEvent event) {
         Food.summa_1 = 0;
         Food.online = 1;
         Food.desc_1 = "Супы:";
         dish_1.getScene().getWindow().hide();
-        openNewScene("food_dynamic.fxml", "Супы");
+        openNewScene("FoodCategory.fxml", "Супы");
     }
 
     @FXML
-    void fourth_dish(ActionEvent event) {
+    void fourthDish(ActionEvent event) {
         Food.summa_4 = 0;
         Food.online = 4;
         Food.desc_4 = "\nНапитки:";
         dish_4.getScene().getWindow().hide();
-        openNewScene("food_dynamic.fxml", "Напитки");
+        openNewScene("FoodCategory.fxml", "Напитки");
     }
 
     @FXML
-    void second_dish(ActionEvent event) {
+    void secondDish(ActionEvent event) {
         Food.summa_2 = 0;
         Food.online = 2;
         Food.desc_2 = "\nВторые блюда:";
         dish_2.getScene().getWindow().hide();
-        openNewScene("food_dynamic.fxml", "Вторые блюда");
+        openNewScene("FoodCategory.fxml", "Вторые блюда");
     }
 
     @FXML
-    void third_dish(ActionEvent event) {
+    void thirdDish(ActionEvent event) {
         Food.summa_3 = 0;
         Food.online = 3;
         Food.desc_3 = "\nДесерты:";
         dish_3.getScene().getWindow().hide();
-        openNewScene("food_dynamic.fxml", "Десерты");
+        openNewScene("FoodCategory.fxml", "Десерты");
     }
 
     @FXML
@@ -87,7 +87,7 @@ public class controller_delivery {
     }
 
     @FXML
-    void make_order(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void makeOrder(ActionEvent event) throws SQLException, ClassNotFoundException {
         if (!enter_name.getText().equals("") && !enter_telephone_number.getText().equals("")) {
             signUpNewReqest();
             Food.total_summa = 0;
@@ -103,14 +103,14 @@ public class controller_delivery {
             enter_telephone_number.setText("");
             description.setText("");
             summ.setText("Сумма заказа: 00.00 Br");
-            openNewScene("info.fxml", "Номер вашего заказа");
+            openNewScene("NewRequestId.fxml", "Номер вашего заказа");
         }
     }
 
     @FXML
-    void back(ActionEvent event) {
+    void buttonMenu(ActionEvent event) {
         menu.getScene().getWindow().hide();
-        openNewScene("main.fxml", "Доставка еды");
+        openNewScene("Start.fxml", "Доставка еды");
         Food.total_summa = 0;
         Food.summa_1 = 0;
         Food.summa_2 = 0;

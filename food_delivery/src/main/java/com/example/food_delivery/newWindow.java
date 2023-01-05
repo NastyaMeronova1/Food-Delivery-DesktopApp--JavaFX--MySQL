@@ -3,14 +3,16 @@ package com.example.food_delivery;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Objects;
 
-public class new_window {
+public class newWindow {
     public static void openNewScene(String window, String title) {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(new_window.class.getResource(window));
+        loader.setLocation(newWindow.class.getResource(window));
         try {
             loader.load();
         } catch (IOException e) {
@@ -19,6 +21,7 @@ public class new_window {
         Parent root = loader.getRoot();
         Stage stage = new Stage();
         stage.setTitle(title);
+        stage.getIcons().add(new Image((Objects.requireNonNull(Main.class.getResourceAsStream("image/logo.png")))));
         stage.setScene(new Scene(root));
         stage.show();
     }

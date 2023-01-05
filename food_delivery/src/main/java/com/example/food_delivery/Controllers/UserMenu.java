@@ -18,9 +18,9 @@ import java.sql.SQLException;
 import java.util.Objects;
 
 import static com.example.food_delivery.DataBase.DatabaseHandler.getDbConnection;
-import static com.example.food_delivery.new_window.openNewScene;
+import static com.example.food_delivery.newWindow.openNewScene;
 
-public class controller_menu {
+public class UserMenu {
 
     @FXML
     private RadioButton dish_1_1;
@@ -137,13 +137,13 @@ public class controller_menu {
     private Label price_6;
 
     @FXML
-    void back(ActionEvent event) {
+    void buttonMenu(ActionEvent event) {
         menu.getScene().getWindow().hide();
-        openNewScene("menu-delivery.fxml", "Выбор категории");
+        openNewScene("NewRequest.fxml", "Выбор категории");
     }
 
     @FXML
-    void make_order(ActionEvent event) {
+    void makeOrder(ActionEvent event) {
         double price1 = Double.parseDouble(price_1.getText()), price2 = Double.parseDouble(price_2.getText()), price3 = Double.parseDouble(price_3.getText()), price4 = Double.parseDouble(price_4.getText()), price5 = Double.parseDouble(price_5.getText()), price6 = Double.parseDouble(price_6.getText());
 
         String desc = "";
@@ -226,12 +226,12 @@ public class controller_menu {
             Food.summa_4 = summa;
         }
         menu.getScene().getWindow().hide();
-        openNewScene("menu-delivery.fxml", "Выбор категории");
+        openNewScene("NewRequest.fxml", "Выбор категории");
     }
 
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
-        reload_menu();
+        reloadMenu();
         ToggleGroup a = new ToggleGroup();
         dish_1_1.setToggleGroup(a);
         dish_1_2.setToggleGroup(a);
@@ -256,11 +256,9 @@ public class controller_menu {
         dish_6_1.setToggleGroup(f);
         dish_6_2.setToggleGroup(f);
         dish_6_3.setToggleGroup(f);
-
-
     }
 
-    public void reload_menu() throws SQLException, ClassNotFoundException {
+    public void reloadMenu() throws SQLException, ClassNotFoundException {
         PreparedStatement ps = getDbConnection().prepareStatement("SELECT * FROM dish WHERE iddish = '" + Food.online + "'");
         ResultSet rs = ps.executeQuery();
         while (rs.next()) {

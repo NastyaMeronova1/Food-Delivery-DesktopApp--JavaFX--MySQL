@@ -14,9 +14,9 @@ import java.sql.SQLException;
 
 import static com.example.food_delivery.DataBase.DatabaseHandler.Change;
 import static com.example.food_delivery.DataBase.DatabaseHandler.Delete;
-import static com.example.food_delivery.new_window.openNewScene;
+import static com.example.food_delivery.newWindow.openNewScene;
 
-public class controller_menu_accounts {
+public class AccountsInfo {
 
 
     @FXML
@@ -39,29 +39,27 @@ public class controller_menu_accounts {
     private TableView<User> table;
 
     @FXML
-    void change_to_user(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void changeRoleToUser(ActionEvent event) throws SQLException, ClassNotFoundException {
         Change(false, enter_login.getText().trim());
         UpdateTable();
     }
 
     @FXML
-    void change_to_worker(ActionEvent event) throws SQLException, ClassNotFoundException {
-
+    void changeRoleToWorker(ActionEvent event) throws SQLException, ClassNotFoundException {
         Change(true, enter_login.getText().trim());
         UpdateTable();
-
     }
 
     @FXML
-    void del(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void deleteUser(ActionEvent event) throws SQLException, ClassNotFoundException {
         Delete(enter_id.getText().trim());
         UpdateTable();
     }
 
     @FXML
-    void back(ActionEvent event) {
+    void buttonMenu(ActionEvent event) {
         menu.getScene().getWindow().hide();
-        openNewScene("main.fxml", "Доставка еды");
+        openNewScene("Start.fxml", "Доставка еды");
     }
 
     public void UpdateTable() throws SQLException, ClassNotFoundException {

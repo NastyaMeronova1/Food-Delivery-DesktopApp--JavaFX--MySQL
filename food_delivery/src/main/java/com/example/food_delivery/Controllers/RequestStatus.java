@@ -10,9 +10,9 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-import static com.example.food_delivery.new_window.openNewScene;
+import static com.example.food_delivery.newWindow.openNewScene;
 
-public class controller_one_info {
+public class RequestStatus {
 
     @FXML
     private TextField enter_number;
@@ -30,13 +30,13 @@ public class controller_one_info {
     private Button menu;
 
     @FXML
-    void back(ActionEvent event) {
+    void buttonMenu(ActionEvent event) {
         menu.getScene().getWindow().hide();
-        openNewScene("main.fxml", "Доставка еды");
+        openNewScene("Start.fxml", "Доставка еды");
     }
 
     @FXML
-    void status(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void checkStatus(ActionEvent event) throws SQLException, ClassNotFoundException {
         DatabaseHandler.getRequestInfo(enter_number.getText().trim());
         label_name.setText("   " + Delivery.this_name);
         label_title.setText("   " + Delivery.this_summ);

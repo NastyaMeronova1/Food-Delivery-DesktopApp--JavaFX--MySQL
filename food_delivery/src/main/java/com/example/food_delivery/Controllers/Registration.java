@@ -13,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import static com.example.food_delivery.Hash.hash;
-import static com.example.food_delivery.new_window.openNewScene;
+import static com.example.food_delivery.newWindow.openNewScene;
 
 public class Registration {
 
@@ -40,19 +40,19 @@ public class Registration {
     private Button menu;
 
     @FXML
-    void aut(ActionEvent event) {
+    void buttonAuthorisation(ActionEvent event) {
         authorisation.getScene().getWindow().hide();
         openNewScene("Authorisation.fxml", "Авторизация");
     }
 
     @FXML
-    void back(ActionEvent event) {
+    void buttonMenu(ActionEvent event) {
         menu.getScene().getWindow().hide();
-        openNewScene("main.fxml", "Доставка еды");
+        openNewScene("Start.fxml", "Доставка еды");
     }
 
     @FXML
-    void reg(ActionEvent event) throws SQLException, NoSuchAlgorithmException, ClassNotFoundException {
+    void buttonRegistration(ActionEvent event) throws SQLException, NoSuchAlgorithmException, ClassNotFoundException {
         if (enter_password.getText().trim().equals(enter_password_again.getText().trim())) {
             if (!enter_login.getText().trim().equals("") && !enter_password.getText().trim().equals("") &&
                     !enter_password_again.getText().trim().equals("") && !enter_name.getText().trim().equals("")) {

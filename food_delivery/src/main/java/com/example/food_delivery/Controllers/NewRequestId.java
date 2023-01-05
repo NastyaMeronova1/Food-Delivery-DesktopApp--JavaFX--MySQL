@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class controller_instance_info {
+public class NewRequestId {
 
     @FXML
     private Button close;
@@ -15,7 +15,7 @@ public class controller_instance_info {
     private Label text;
 
     @FXML
-    void close_this(ActionEvent event) {
+    void closeWindow(ActionEvent event) {
         Stage stage = (Stage) close.getScene().getWindow();
         stage.close();
     }
