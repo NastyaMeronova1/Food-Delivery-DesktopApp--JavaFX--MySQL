@@ -1,25 +1,22 @@
 package com.example.food_delivery;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Objects;
 
 import static com.example.food_delivery.DataBase.DatabaseHandler.getDbConnection;
+import static com.example.food_delivery.new_window.openNewScene;
 
 public class controller_menu {
 
@@ -76,9 +73,6 @@ public class controller_menu {
 
     @FXML
     private RadioButton dish_6_3;
-
-    @FXML
-    private Button do_order;
 
     @FXML
     private ImageView image_1;
@@ -141,6 +135,99 @@ public class controller_menu {
     private Label price_6;
 
     @FXML
+    void back(ActionEvent event) {
+        menu.getScene().getWindow().hide();
+        openNewScene("menu-delivery.fxml", "Выбор категории");
+    }
+
+    @FXML
+    void make_order(ActionEvent event) {
+        double price1 = Double.parseDouble(price_1.getText()), price2 = Double.parseDouble(price_2.getText()), price3 = Double.parseDouble(price_3.getText()), price4 = Double.parseDouble(price_4.getText()), price5 = Double.parseDouble(price_5.getText()), price6 = Double.parseDouble(price_6.getText());
+
+        String desc = "";
+        int summa = 0;
+
+        if (dish_1_1.isSelected()) {
+            summa += price1;
+            desc += "\n" + name_1.getText() + " - 1шт. по " + price_1.getText() + " Br";
+        } else if (dish_1_2.isSelected()) {
+            summa += 2 * price1;
+            desc += "\n" + name_1.getText() + " - 2шт. по " + price_1.getText() + " Br";
+        } else if (dish_1_3.isSelected()) {
+            summa += 3 * price1;
+            desc += "\n" + name_1.getText() + " - 3шт. по " + price_1.getText() + " Br";
+        }
+
+        if (dish_2_1.isSelected()) {
+            summa += price2;
+            desc += "\n" + name_2.getText() + " - 1шт. по " + price_2.getText() + " Br";
+        } else if (dish_2_2.isSelected()) {
+            summa += 2 * price2;
+            desc += "\n" + name_2.getText() + " - 2шт. по " + price_2.getText() + " Br";
+        } else if (dish_2_3.isSelected()) {
+            summa += 3 * price2;
+            desc += "\n" + name_2.getText() + " - 3шт. по " + price_2.getText() + " Br";
+        }
+        if (dish_3_1.isSelected()) {
+            summa += price3;
+            desc += "\n" + name_3.getText() + " - 1шт. по " + price_3.getText() + " Br";
+        } else if (dish_3_2.isSelected()) {
+            summa += 2 * price3;
+            desc += "\n" + name_3.getText() + " - 2шт. по " + price_3.getText() + " Br";
+        } else if (dish_3_3.isSelected()) {
+            summa += 3 * price3;
+            desc += "\n" + name_3.getText() + " - 3шт. по " + price_3.getText() + " Br";
+        }
+
+        if (dish_4_1.isSelected()) {
+            summa += price4;
+            desc += "\n" + name_4.getText() + " - 1шт. по " + price_4.getText() + " Br";
+        } else if (dish_4_2.isSelected()) {
+            summa += 2 * price4;
+            desc += "\n" + name_4.getText() + " - 2шт. по " + price_4.getText() + " Br";
+        } else if (dish_4_3.isSelected()) {
+            summa += 3 * price4;
+            desc += "\n" + name_4.getText() + " - 3шт. по " + price_4.getText() + " Br";
+        }
+        if (dish_5_1.isSelected()) {
+            summa += price5;
+            desc += "\n" + name_5.getText() + " - 1шт. по " + price_5.getText() + " Br";
+        } else if (dish_5_2.isSelected()) {
+            summa += 2 * price5;
+            desc += "\n" + name_5.getText() + " - 2шт. по " + price_5.getText() + " Br";
+        } else if (dish_5_3.isSelected()) {
+            summa += 3 * price5;
+            desc += "\n" + name_5.getText() + " - 3шт. по " + price_5.getText() + " Br";
+        }
+        if (dish_6_1.isSelected()) {
+            summa += price6;
+            desc += "\n" + name_6.getText() + " - 1шт. по " + price_6.getText() + " Br";
+        } else if (dish_6_2.isSelected()) {
+            summa += 2 * price6;
+            desc += "\n" + name_6.getText() + " - 2шт. по " + price_6.getText() + " Br";
+        } else if (dish_6_3.isSelected()) {
+            summa += 3 * price6;
+            desc += "\n" + name_6.getText() + " - 3шт. по " + price_6.getText() + " Br";
+        }
+
+        if (Food.online == 1) {
+            Food.desc_1 = "\n\n" + title.getText() + ":" + desc;
+            Food.summa_1 = summa;
+        } else if (Food.online == 2) {
+            Food.desc_2 = "\n\n" + title.getText() + ":" + desc;
+            Food.summa_2 = summa;
+        } else if (Food.online == 3) {
+            Food.desc_3 = "\n\n" + title.getText() + ":" + desc;
+            Food.summa_3 = summa;
+        } else if (Food.online == 4) {
+            Food.desc_4 = "\n\n" + title.getText() + ":" + desc;
+            Food.summa_4 = summa;
+        }
+        menu.getScene().getWindow().hide();
+        openNewScene("menu-delivery.fxml", "Выбор категории");
+    }
+
+    @FXML
     void initialize() throws SQLException, ClassNotFoundException {
         reload_menu();
         ToggleGroup a = new ToggleGroup();
@@ -168,90 +255,7 @@ public class controller_menu {
         dish_6_2.setToggleGroup(f);
         dish_6_3.setToggleGroup(f);
 
-        double price1 = Double.parseDouble(price_1.getText()), price2 = Double.parseDouble(price_2.getText()), price3 = Double.parseDouble(price_3.getText()), price4 = Double.parseDouble(price_4.getText()), price5 = Double.parseDouble(price_5.getText()), price6 = Double.parseDouble(price_6.getText());
-        do_order.setOnAction(event -> {
-            String desc = "";
-            int summa = 0;
 
-            if (dish_1_1.isSelected()) {
-                summa += price1;
-                desc += "\n" + name_1.getText() + " - 1шт. по " + price_1.getText() + " Br";
-            } else if (dish_1_2.isSelected()) {
-                summa += 2 * price1;
-                desc += "\n" + name_1.getText() + " - 2шт. по " + price_1.getText() + " Br";
-            } else if (dish_1_3.isSelected()) {
-                summa += 3 * price1;
-                desc += "\n" + name_1.getText() + " - 3шт. по " + price_1.getText() + " Br";
-            }
-
-            if (dish_2_1.isSelected()) {
-                summa += price2;
-                desc += "\n" + name_2.getText() + " - 1шт. по " + price_2.getText() + " Br";
-            } else if (dish_2_2.isSelected()) {
-                summa += 2 * price2;
-                desc += "\n" + name_2.getText() + " - 2шт. по " + price_2.getText() + " Br";
-            } else if (dish_2_3.isSelected()) {
-                summa += 3 * price2;
-                desc += "\n" + name_2.getText() + " - 3шт. по " + price_2.getText() + " Br";
-            }
-            if (dish_3_1.isSelected()) {
-                summa += price3;
-                desc += "\n" + name_3.getText() + " - 1шт. по " + price_3.getText() + " Br";
-            } else if (dish_3_2.isSelected()) {
-                summa += 2 * price3;
-                desc += "\n" + name_3.getText() + " - 2шт. по " + price_3.getText() + " Br";
-            } else if (dish_3_3.isSelected()) {
-                summa += 3 * price3;
-                desc += "\n" + name_3.getText() + " - 3шт. по " + price_3.getText() + " Br";
-            }
-
-            if (dish_4_1.isSelected()) {
-                summa += price4;
-                desc += "\n" + name_4.getText() + " - 1шт. по " + price_4.getText() + " Br";
-            } else if (dish_4_2.isSelected()) {
-                summa += 2 * price4;
-                desc += "\n" + name_4.getText() + " - 2шт. по " + price_4.getText() + " Br";
-            } else if (dish_4_3.isSelected()) {
-                summa += 3 * price4;
-                desc += "\n" + name_4.getText() + " - 3шт. по " + price_4.getText() + " Br";
-            }
-            if (dish_5_1.isSelected()) {
-                summa += price5;
-                desc += "\n" + name_5.getText() + " - 1шт. по " + price_5.getText() + " Br";
-            } else if (dish_5_2.isSelected()) {
-                summa += 2 * price5;
-                desc += "\n" + name_5.getText() + " - 2шт. по " + price_5.getText() + " Br";
-            } else if (dish_5_3.isSelected()) {
-                summa += 3 * price5;
-                desc += "\n" + name_5.getText() + " - 3шт. по " + price_5.getText() + " Br";
-            }
-            if (dish_6_1.isSelected()) {
-                summa += price6;
-                desc += "\n" + name_6.getText() + " - 1шт. по " + price_6.getText() + " Br";
-            } else if (dish_6_2.isSelected()) {
-                summa += 2 * price6;
-                desc += "\n" + name_6.getText() + " - 2шт. по " + price_6.getText() + " Br";
-            } else if (dish_6_3.isSelected()) {
-                summa += 3 * price6;
-                desc += "\n" + name_6.getText() + " - 3шт. по " + price_6.getText() + " Br";
-            }
-
-            if (Food.online == 1) {
-                Food.desc_1 = "\n\n" + title.getText() + ":" + desc;
-                Food.summa_1 = summa;
-            } else if (Food.online == 2) {
-                Food.desc_2 = "\n\n" + title.getText() + ":" + desc;
-                Food.summa_2 = summa;
-            } else if (Food.online == 3) {
-                Food.desc_3 = "\n\n" + title.getText() + ":" + desc;
-                Food.summa_3 = summa;
-            } else if (Food.online == 4) {
-                Food.desc_4 = "\n\n" + title.getText() + ":" + desc;
-                Food.summa_4 = summa;
-            }
-            openNewScene("menu-delivery.fxml");
-        });
-        menu.setOnAction(event -> openNewScene("menu-delivery.fxml"));
     }
 
     public void reload_menu() throws SQLException, ClassNotFoundException {
@@ -278,21 +282,6 @@ public class controller_menu {
             image_5.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream(rs.getString("image_5")))));
             image_6.setImage(new Image(Objects.requireNonNull(Main.class.getResourceAsStream(rs.getString("image_6")))));
         }
-    }
-
-    public void openNewScene(String window) {
-        do_order.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(window));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
     }
 }
 

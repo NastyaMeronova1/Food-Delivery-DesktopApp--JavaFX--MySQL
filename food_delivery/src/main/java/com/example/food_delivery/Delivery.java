@@ -12,6 +12,7 @@ public class Delivery {
     private String description;
     private String summ;
     private String status;
+
     public Delivery(String idrequest, String name, String telephone_number, String description, String summ, String status) {
         this.idrequest = idrequest;
         this.name = name;
@@ -20,6 +21,7 @@ public class Delivery {
         this.summ = summ;
         this.status = status;
     }
+
     public Delivery(String name, String telephone_number, String description, String summ, String status) {
         this.name = name;
         this.telephone_number = telephone_number;
@@ -27,6 +29,7 @@ public class Delivery {
         this.summ = summ;
         this.status = status;
     }
+
     public String getIdrequest() {
         return idrequest;
     }

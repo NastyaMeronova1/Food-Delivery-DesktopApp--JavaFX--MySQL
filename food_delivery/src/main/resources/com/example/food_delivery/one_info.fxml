@@ -11,87 +11,69 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFCC;" stylesheets="@Styles.css"
-            xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.food_delivery.controller_one_info">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #FFFFCC;" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.food_delivery.controller_one_info">
    <AnchorPane layoutY="69.0" prefHeight="339.0" prefWidth="801.0" style="-fx-background-color: #FFFFCC;">
-      <Button fx:id="check_status" focusTraversable="false" layoutX="55.0" layoutY="121.0" mnemonicParsing="false"
-              prefHeight="39.0" prefWidth="162.0"
-              style="-fx-background-color: #CCCCFF; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: black;"
-              text="Проверить статус">
+      <Button fx:id="check_status" focusTraversable="false" layoutX="55.0" layoutY="121.0" mnemonicParsing="false" onAction="#status" prefHeight="39.0" prefWidth="162.0" style="-fx-background-color: #CCCCFF; -fx-border-radius: 4; -fx-background-radius: 4; -fx-border-color: black;" text="Проверить статус">
          <font>
-            <Font name="Century" size="14.0"/>
+            <Font name="Century" size="14.0" />
          </font>
       </Button>
-      <TextField fx:id="enter_number" alignment="CENTER" focusTraversable="false" layoutX="38.0" layoutY="48.0"
-                 prefHeight="54.0" prefWidth="197.0" promptText="Введите номер заказа"
-                 style="-fx-border-color: black;">
+      <TextField fx:id="enter_number" alignment="CENTER" focusTraversable="false" layoutX="38.0" layoutY="48.0" prefHeight="54.0" prefWidth="197.0" promptText="Введите номер заказа" style="-fx-border-color: black;">
          <font>
-            <Font name="Century" size="14.0"/>
+            <Font name="Century" size="14.0" />
          </font>
       </TextField>
-      <Separator layoutX="274.0" layoutY="29.0" orientation="VERTICAL" prefHeight="200.0"/>
-      <GridPane alignment="TOP_CENTER" layoutX="314.0" layoutY="29.0" prefHeight="200.0" prefWidth="451.0"
-                style="-fx-border-color: white; -fx-grid-lines-visible: true;">
+      <Separator layoutX="274.0" layoutY="29.0" orientation="VERTICAL" prefHeight="200.0" />
+      <GridPane alignment="TOP_CENTER" layoutX="314.0" layoutY="29.0" prefHeight="200.0" prefWidth="451.0" style="-fx-border-color: white; -fx-grid-lines-visible: true;">
          <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.33331298828125" minWidth="10.0"
-                               prefWidth="142.66666666666666"/>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="317.3333435058594" minWidth="10.0" prefWidth="306.0"/>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="219.33331298828125" minWidth="10.0" prefWidth="142.66666666666666" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="317.3333435058594" minWidth="10.0" prefWidth="306.0" />
          </columnConstraints>
          <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
-         <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="20.0" prefWidth="155.0"
-                text="  Имя заказчика:">
+         <Label alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="20.0" prefWidth="155.0" text="  Имя заказчика:">
             <font>
-               <Font name="Century" size="14.0"/>
+               <Font name="Century" size="14.0" />
             </font>
          </Label>
-         <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="124.0"
-                text="  Стоимость:" GridPane.rowIndex="1">
+         <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="124.0" text="  Стоимость:" GridPane.rowIndex="1">
             <font>
-               <Font name="Century" size="14.0"/>
+               <Font name="Century" size="14.0" />
             </font>
          </Label>
-         <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="123.0" text="  Статус:"
-                GridPane.rowIndex="2">
+         <Label alignment="TOP_LEFT" prefHeight="20.0" prefWidth="123.0" text="  Статус:" GridPane.rowIndex="2">
             <font>
-               <Font name="Century" size="14.0"/>
+               <Font name="Century" size="14.0" />
             </font>
          </Label>
-         <Label fx:id="label_name" alignment="TOP_LEFT" contentDisplay="TOP"
-                prefHeight="20.0" prefWidth="155.0" GridPane.columnIndex="1">
+         <Label fx:id="label_name" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="20.0" prefWidth="155.0" GridPane.columnIndex="1">
             <font>
-               <Font name="Century" size="14.0"/>
+               <Font name="Century" size="14.0" />
             </font>
          </Label>
-         <Label fx:id="label_title" alignment="TOP_LEFT" contentDisplay="TOP"
-                prefHeight="20.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <Label fx:id="label_title" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="20.0" prefWidth="230.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
             <font>
-               <Font name="Century" size="14.0"/>
+               <Font name="Century" size="14.0" />
             </font>
          </Label>
-         <Label fx:id="label_status" alignment="TOP_LEFT" contentDisplay="TOP"
-                prefHeight="20.0" prefWidth="155.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+         <Label fx:id="label_status" alignment="TOP_LEFT" contentDisplay="TOP" prefHeight="20.0" prefWidth="155.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
             <font>
-               <Font name="Century" size="14.0"/>
+               <Font name="Century" size="14.0" />
             </font>
          </Label>
       </GridPane>
-      <Button fx:id="menu" focusTraversable="false" layoutX="340.0" layoutY="258.0" mnemonicParsing="false"
-              prefHeight="39.0" prefWidth="161.0"
-              style="-fx-background-color: #CCCCFF; -fx-border-color: black; -fx-background-radius: 4; -fx-border-radius: 4;"
-              text="Вернуться в меню">
+      <Button fx:id="menu" focusTraversable="false" layoutX="340.0" layoutY="258.0" mnemonicParsing="false" onAction="#back" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #CCCCFF; -fx-border-color: black; -fx-background-radius: 4; -fx-border-radius: 4;" text="Вернуться в меню">
          <font>
-            <Font name="Century" size="14.0"/>
+            <Font name="Century" size="14.0" />
          </font>
       </Button>
    </AnchorPane>
    <Text layoutX="258.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Просмотр статуса заказа">
       <font>
-         <Font name="Century" size="24.0"/>
+         <Font name="Century" size="24.0" />
       </font>
    </Text>
 </AnchorPane>

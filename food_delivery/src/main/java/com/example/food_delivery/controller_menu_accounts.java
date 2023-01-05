@@ -1,31 +1,23 @@
 package com.example.food_delivery;
 
 import com.example.food_delivery.DataBase.DatabaseHandler;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
 import static com.example.food_delivery.DataBase.DatabaseHandler.Change;
 import static com.example.food_delivery.DataBase.DatabaseHandler.Delete;
+import static com.example.food_delivery.new_window.openNewScene;
 
 public class controller_menu_accounts {
 
 
-    @FXML
-    private Button change_role_to_user;
-    @FXML
-    private Button change_role_to_worker;
     @FXML
     private TableColumn<User, String> column_id;
     @FXML
@@ -37,8 +29,6 @@ public class controller_menu_accounts {
     @FXML
     private TableColumn<User, String> column_role;
     @FXML
-    private Button delete_id;
-    @FXML
     private TextField enter_id;
     @FXML
     private TextField enter_login;
@@ -46,6 +36,32 @@ public class controller_menu_accounts {
     private Button menu;
     @FXML
     private TableView<User> table;
+
+    @FXML
+    void change_to_user(ActionEvent event) throws SQLException, ClassNotFoundException {
+        Change(false, enter_login.getText().trim());
+        UpdateTable();
+    }
+
+    @FXML
+    void change_to_worker(ActionEvent event) throws SQLException, ClassNotFoundException {
+
+        Change(true, enter_login.getText().trim());
+        UpdateTable();
+
+    }
+
+    @FXML
+    void del(ActionEvent event) throws SQLException, ClassNotFoundException {
+        Delete(enter_id.getText().trim());
+        UpdateTable();
+    }
+
+    @FXML
+    void back(ActionEvent event) {
+        menu.getScene().getWindow().hide();
+        openNewScene("main.fxml", "Доставка еды");
+    }
 
     public void UpdateTable() throws SQLException, ClassNotFoundException {
         column_id.setCellValueFactory(new PropertyValueFactory<>("iduser"));
@@ -56,49 +72,8 @@ public class controller_menu_accounts {
         table.setItems(DatabaseHandler.getDataUser());
     }
 
-
     @FXML
     void initialize() throws SQLException, ClassNotFoundException {
         UpdateTable();
-        menu.setOnAction(event -> openNewScene("main.fxml"));
-        delete_id.setOnAction(event -> {
-            try {
-                Delete(enter_id.getText().trim());
-                UpdateTable();
-            } catch (SQLException | ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        change_role_to_user.setOnAction(actionEvent -> {
-            try {
-                Change(false, enter_login.getText().trim());
-                UpdateTable();
-            } catch (SQLException | ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        change_role_to_worker.setOnAction(actionEvent -> {
-            try {
-                Change(true, enter_login.getText().trim());
-                UpdateTable();
-            } catch (SQLException | ClassNotFoundException e) {
-                throw new RuntimeException(e);
-            }
-        });
-    }
-
-    public void openNewScene(String window) {
-        menu.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(window));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
     }
 }

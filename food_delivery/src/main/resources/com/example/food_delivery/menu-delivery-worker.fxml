@@ -40,63 +40,48 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="1100.0" style="-fx-background-color: #FFFFCC;"
-            stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.example.food_delivery.controller_delivery_worker">
+<AnchorPane prefHeight="500.0" prefWidth="1100.0" style="-fx-background-color: #FFFFCC;" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.food_delivery.controller_delivery_worker">
    <Label layoutX="195.0" layoutY="14.0" text="Заказы в работе">
       <font>
-         <Font name="Century" size="24.0"/>
+         <Font name="Century" size="24.0" />
       </font>
    </Label>
-   <Button fx:id="change" focusTraversable="false" layoutX="323.0" layoutY="450.0" mnemonicParsing="false"
-           prefHeight="30.0" prefWidth="183.0"
-           style="-fx-background-color: plum; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: black;"
-           text="Отметить выполненным">
+   <Button fx:id="change" focusTraversable="false" layoutX="323.0" layoutY="450.0" mnemonicParsing="false" onAction="#already_did" prefHeight="30.0" prefWidth="183.0" style="-fx-background-color: plum; -fx-background-radius: 4; -fx-border-radius: 4; -fx-border-color: black;" text="Отметить выполненным">
       <font>
-         <Font name="Century" size="12.0"/>
+         <Font name="Century" size="12.0" />
       </font>
    </Button>
-   <Button fx:id="menu" focusTraversable="false" layoutX="567.0" layoutY="450.0" mnemonicParsing="false"
-           prefHeight="30.0" prefWidth="98.0"
-           style="-fx-background-color: #ccccff; -fx-border-color: black; -fx-border-radius: 4; -fx-background-radius: 4;"
-           text="Выйти">
+   <Button fx:id="menu" focusTraversable="false" layoutX="567.0" layoutY="450.0" mnemonicParsing="false" onAction="#back" prefHeight="30.0" prefWidth="98.0" style="-fx-background-color: #ccccff; -fx-border-color: black; -fx-border-radius: 4; -fx-background-radius: 4;" text="Выйти">
       <font>
-         <Font name="Century" size="14.0"/>
+         <Font name="Century" size="14.0" />
       </font>
    </Button>
-   <TableView fx:id="table_1" focusTraversable="false" layoutX="12.0" layoutY="57.0" prefHeight="369.0"
-              prefWidth="589.0" style="-fx-background-color: transparent;">
+   <TableView fx:id="table_1" focusTraversable="false" layoutX="12.0" layoutY="57.0" prefHeight="369.0" prefWidth="589.0" style="-fx-background-color: transparent;">
       <columns>
-         <TableColumn fx:id="column_id" prefWidth="29.333312034606934" text="id"/>
-         <TableColumn fx:id="column_name" prefWidth="73.33334732055664" text="Имя"/>
-         <TableColumn fx:id="column_telephone_number" prefWidth="105.33333587646484" text="Номер телефона"/>
-         <TableColumn fx:id="column_summ" prefWidth="238.6667022705078" text="Описание заказа"/>
-         <TableColumn fx:id="column_description" prefWidth="134.66665649414062" text="Сумма заказа"/>
+         <TableColumn fx:id="column_id" prefWidth="29.333312034606934" text="id" />
+         <TableColumn fx:id="column_name" prefWidth="73.33334732055664" text="Имя" />
+         <TableColumn fx:id="column_telephone_number" prefWidth="105.33333587646484" text="Номер телефона" />
+         <TableColumn fx:id="column_summ" prefWidth="238.6667022705078" text="Описание заказа" />
+         <TableColumn fx:id="column_description" prefWidth="134.66665649414062" text="Сумма заказа" />
       </columns>
    </TableView>
-   <TextField fx:id="enter_id" focusTraversable="false" layoutX="106.0" layoutY="450.0" prefHeight="30.0"
-              prefWidth="183.0" promptText="Введите id"
-              style="-fx-border-color: black; -fx-border-radius: 4; -fx-background-radius: 4;"/>
-   <Button fx:id="delete_all" focusTraversable="false" layoutX="803.0" layoutY="450.0" mnemonicParsing="false"
-           prefHeight="30.0" prefWidth="177.0"
-           style="-fx-background-color: plum; -fx-background-radius: 4; -fx-border-color: black; -fx-border-radius: 4;"
-           text="Очистить список заявок">
+   <TextField fx:id="enter_id" focusTraversable="false" layoutX="106.0" layoutY="450.0" prefHeight="30.0" prefWidth="183.0" promptText="Введите id" style="-fx-border-color: black; -fx-border-radius: 4; -fx-background-radius: 4;" />
+   <Button fx:id="delete_all" focusTraversable="false" layoutX="803.0" layoutY="450.0" mnemonicParsing="false" onAction="#delete_everything" prefHeight="30.0" prefWidth="177.0" style="-fx-background-color: plum; -fx-background-radius: 4; -fx-border-color: black; -fx-border-radius: 4;" text="Очистить список заявок">
       <font>
-         <Font name="Century" size="12.0"/>
+         <Font name="Century" size="12.0" />
       </font>
    </Button>
-   <TableView fx:id="table_2" focusTraversable="false" layoutX="616.0" layoutY="57.0" prefHeight="369.0"
-              prefWidth="475.0" style="-fx-background-color: transparent;">
+   <TableView fx:id="table_2" focusTraversable="false" layoutX="616.0" layoutY="57.0" prefHeight="369.0" prefWidth="475.0" style="-fx-background-color: transparent;">
       <columns>
-         <TableColumn fx:id="column_id_2" prefWidth="29.3333740234375" text="№"/>
-         <TableColumn fx:id="column_name_2" prefWidth="66.6666259765625" text="Имя"/>
-         <TableColumn fx:id="column_summ_1" prefWidth="258.666748046875" text="Описание заказа"/>
-         <TableColumn fx:id="column_telephone_number_1" prefWidth="114.6666259765625" text="Номер телефона"/>
+         <TableColumn fx:id="column_id_2" prefWidth="29.3333740234375" text="№" />
+         <TableColumn fx:id="column_name_2" prefWidth="66.6666259765625" text="Имя" />
+         <TableColumn fx:id="column_summ_1" prefWidth="258.666748046875" text="Описание заказа" />
+         <TableColumn fx:id="column_telephone_number_1" prefWidth="114.6666259765625" text="Номер телефона" />
       </columns>
    </TableView>
    <Label layoutX="727.0" layoutY="14.0" text="Выполненные заказы">
       <font>
-         <Font name="Century" size="24.0"/>
+         <Font name="Century" size="24.0" />
       </font>
    </Label>
 </AnchorPane>

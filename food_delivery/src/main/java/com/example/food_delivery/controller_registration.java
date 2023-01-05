@@ -1,21 +1,18 @@
 package com.example.food_delivery;
 
 import com.example.food_delivery.DataBase.DatabaseHandler;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 
 import static com.example.food_delivery.Hash.hash;
+import static com.example.food_delivery.new_window.openNewScene;
 
 public class controller_registration {
 
@@ -42,33 +39,33 @@ public class controller_registration {
     private Button menu;
 
     @FXML
-    private Button registration;
-
-    @FXML
-    void initialize() {
-        registration.setOnAction(event -> {
-            if (enter_password.getText().trim().equals(enter_password_again.getText().trim())) {
-                if (!enter_login.getText().trim().equals("") && !enter_password.getText().trim().equals("") &&
-                        !enter_password_again.getText().trim().equals("") && !enter_name.getText().trim().equals("")) {
-                    try {
-                        if (!DatabaseHandler.getUserLogin(enter_login.getText())) {
-                            signUpNewUser();
-                            invisible.setText("Регистрация прошла успешно");
-                            openNewScene("authorisation.fxml");
-                        } else
-                            invisible.setText("Такой логин уже существует!");
-                    } catch (SQLException | ClassNotFoundException | NoSuchAlgorithmException e) {
-                        throw new RuntimeException(e);
-                    }
-
-                } else invisible.setText("Одно или нексолько полей не заполнены");
-            } else
-                invisible.setText("Проверьте верность введённых данных!");
-        });
-        menu.setOnAction(event -> openNewScene("main.fxml"));
-        authorisation.setOnAction(event -> openNewScene("authorisation.fxml"));
+    void aut(ActionEvent event) {
+        authorisation.getScene().getWindow().hide();
+        openNewScene("authorisation.fxml", "Авторизация");
     }
 
+    @FXML
+    void back(ActionEvent event) {
+        menu.getScene().getWindow().hide();
+        openNewScene("main.fxml", "Доставка еды");
+    }
+
+    @FXML
+    void reg(ActionEvent event) throws SQLException, NoSuchAlgorithmException, ClassNotFoundException {
+        if (enter_password.getText().trim().equals(enter_password_again.getText().trim())) {
+            if (!enter_login.getText().trim().equals("") && !enter_password.getText().trim().equals("") &&
+                    !enter_password_again.getText().trim().equals("") && !enter_name.getText().trim().equals("")) {
+                if (!DatabaseHandler.getUserLogin(enter_login.getText())) {
+                    signUpNewUser();
+                    invisible.setText("Регистрация прошла успешно");
+                    authorisation.getScene().getWindow().hide();
+                    openNewScene("authorisation.fxml", "Авторизация");
+                } else
+                    invisible.setText("Такой логин уже существует!");
+            } else invisible.setText("Одно или нексолько полей не заполнены");
+        } else
+            invisible.setText("Проверьте верность введённых данных!");
+    }
 
     private void signUpNewUser() throws SQLException, ClassNotFoundException, NoSuchAlgorithmException {
         DatabaseHandler dbHandler = new DatabaseHandler();
@@ -77,21 +74,5 @@ public class controller_registration {
         String name = enter_name.getText();
         User user = new User(login, password, name, "user");
         dbHandler.signUpMaster(user);
-
-    }
-
-    public void openNewScene(String window) {
-        menu.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(window));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
     }
 }

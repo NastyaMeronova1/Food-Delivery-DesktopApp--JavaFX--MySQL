@@ -1,23 +1,16 @@
 package com.example.food_delivery;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
-import java.io.IOException;
+import static com.example.food_delivery.new_window.openNewScene;
 
 public class controller_main {
 
-
     @FXML
     private Button authorisation;
-
-    @FXML
-    private Button exit;
 
     @FXML
     private Button registration;
@@ -26,26 +19,26 @@ public class controller_main {
     private Button request_status;
 
     @FXML
-    void initialize() {
-        registration.setOnAction(event -> openNewScene("registration.fxml"));
-        authorisation.setOnAction(event -> openNewScene("authorisation.fxml"));
-        request_status.setOnAction(event -> openNewScene("one_info.fxml"));
-        exit.setOnAction(event -> Platform.exit());
+    void autho(ActionEvent event) {
+        authorisation.getScene().getWindow().hide();
+        openNewScene("authorisation.fxml", "Авторизация еды");
     }
 
-    public void openNewScene(String window) {
-        authorisation.getScene().getWindow().hide();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource(window));
-        try {
-            loader.load();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        Parent root = loader.getRoot();
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+    @FXML
+    void check(ActionEvent event) {
+        request_status.getScene().getWindow().hide();
+        openNewScene("one_info.fxml", "Статус заказа");
+    }
+
+    @FXML
+    void reg(ActionEvent event) {
+        registration.getScene().getWindow().hide();
+        openNewScene("registration.fxml", "Регистрация");
+    }
+
+    @FXML
+    void out(ActionEvent event) {
+        Platform.exit();
     }
 }
 
