@@ -1,5 +1,6 @@
-package com.example.food_delivery;
+package com.example.food_delivery.Controllers;
 
+import com.example.food_delivery.Classes.Food;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -13,7 +14,7 @@ import static com.example.food_delivery.DataBase.DatabaseHandler.getRole;
 import static com.example.food_delivery.Hash.hash;
 import static com.example.food_delivery.new_window.openNewScene;
 
-public class controller_authorisation {
+public class Authorisation {
 
     @FXML
     private Button authorisation;
@@ -36,7 +37,7 @@ public class controller_authorisation {
     @FXML
     void HandleRegistration(ActionEvent event) {
         registration.getScene().getWindow().hide();
-        openNewScene("registration.fxml", "Регистрация");
+        openNewScene("Registration.fxml", "Регистрация");
     }
 
 

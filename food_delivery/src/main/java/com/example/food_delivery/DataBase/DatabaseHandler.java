@@ -1,7 +1,7 @@
 package com.example.food_delivery.DataBase;
 
-import com.example.food_delivery.Delivery;
-import com.example.food_delivery.User;
+import com.example.food_delivery.Classes.Delivery;
+import com.example.food_delivery.Classes.User;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 

@@ -44,7 +44,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="484.0" prefWidth="800.0" style="-fx-background-color: #FFFFCC;" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.food_delivery.controller_delivery">
+<AnchorPane prefHeight="484.0" prefWidth="800.0" style="-fx-background-color: #FFFFCC;" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.food_delivery.Controllers.controller_delivery">
    <Label layoutX="79.0" layoutY="37.0" text="Выбор категории">
       <font>
          <Font name="Century" size="24.0" />

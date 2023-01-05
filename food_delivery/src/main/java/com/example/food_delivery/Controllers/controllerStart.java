@@ -1,4 +1,4 @@
-package com.example.food_delivery;
+package com.example.food_delivery.Controllers;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -7,7 +7,7 @@ import javafx.scene.control.Button;
 
 import static com.example.food_delivery.new_window.openNewScene;
 
-public class controller_main {
+public class controllerStart {
 
     @FXML
     private Button authorisation;
@@ -21,7 +21,7 @@ public class controller_main {
     @FXML
     void autho(ActionEvent event) {
         authorisation.getScene().getWindow().hide();
-        openNewScene("authorisation.fxml", "Авторизация еды");
+        openNewScene("Authorisation.fxml", "Авторизация еды");
     }
 
     @FXML
@@ -33,7 +33,7 @@ public class controller_main {
     @FXML
     void reg(ActionEvent event) {
         registration.getScene().getWindow().hide();
-        openNewScene("registration.fxml", "Регистрация");
+        openNewScene("Registration.fxml", "Регистрация");
     }
 
     @FXML

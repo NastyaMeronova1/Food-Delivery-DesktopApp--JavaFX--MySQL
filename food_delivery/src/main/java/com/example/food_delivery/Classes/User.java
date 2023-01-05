@@ -1,4 +1,4 @@
-package com.example.food_delivery;
+package com.example.food_delivery.Classes;
 
 public class User {
     private String iduser;

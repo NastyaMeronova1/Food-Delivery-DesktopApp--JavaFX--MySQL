@@ -43,7 +43,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="409.0" prefWidth="770.0" style="-fx-background-color: #FFFFCC;" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.food_delivery.controller_menu_accounts">
+<AnchorPane prefHeight="409.0" prefWidth="770.0" style="-fx-background-color: #FFFFCC;" stylesheets="@Styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.food_delivery.Controllers.controller_menu_accounts">
    <Label layoutX="205.0" layoutY="27.0" text="База данных аккаунтов">
       <font>
          <Font name="Century" size="24.0" />

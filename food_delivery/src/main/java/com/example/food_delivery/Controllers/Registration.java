@@ -1,5 +1,6 @@
-package com.example.food_delivery;
+package com.example.food_delivery.Controllers;
 
+import com.example.food_delivery.Classes.User;
 import com.example.food_delivery.DataBase.DatabaseHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,7 +15,7 @@ import java.sql.SQLException;
 import static com.example.food_delivery.Hash.hash;
 import static com.example.food_delivery.new_window.openNewScene;
 
-public class controller_registration {
+public class Registration {
 
 
     @FXML
@@ -41,7 +42,7 @@ public class controller_registration {
     @FXML
     void aut(ActionEvent event) {
         authorisation.getScene().getWindow().hide();
-        openNewScene("authorisation.fxml", "Авторизация");
+        openNewScene("Authorisation.fxml", "Авторизация");
     }
 
     @FXML
@@ -59,7 +60,7 @@ public class controller_registration {
                     signUpNewUser();
                     invisible.setText("Регистрация прошла успешно");
                     authorisation.getScene().getWindow().hide();
-                    openNewScene("authorisation.fxml", "Авторизация");
+                    openNewScene("Authorisation.fxml", "Авторизация");
                 } else
                     invisible.setText("Такой логин уже существует!");
             } else invisible.setText("Одно или нексолько полей не заполнены");

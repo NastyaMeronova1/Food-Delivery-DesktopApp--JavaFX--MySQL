@@ -39,7 +39,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="519.0" prefWidth="800.0" style="-fx-background-color: #FFFFCC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.food_delivery.controller_menu">
+<AnchorPane prefHeight="519.0" prefWidth="800.0" style="-fx-background-color: #FFFFCC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.food_delivery.Controllers.controller_menu">
    <Label fx:id="title" layoutX="324.0" layoutY="26.0" text="Горячие блюда">
       <font>
          <Font name="Courier New" size="20.0" />

@@ -1,5 +1,6 @@
-package com.example.food_delivery;
+package com.example.food_delivery.Controllers;
 
+import com.example.food_delivery.Classes.Delivery;
 import com.example.food_delivery.DataBase.DatabaseHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

@@ -1,6 +1,8 @@
-package com.example.food_delivery;
+package com.example.food_delivery.Controllers;
 
 
+import com.example.food_delivery.Classes.Food;
+import com.example.food_delivery.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
