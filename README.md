@@ -1,6 +1,6 @@
 # Food Delivery DesktopApp, JavaFX, MySQL
  
-<h3 align="center">Курсовая работа за 2-й курс.</h3>
+<h3 align="center">Приложение на тему "Доставка еды". JavaFX, MySQL.</h3>
 
 	Тема: Доставка еды
 	Язык программирования: Java
