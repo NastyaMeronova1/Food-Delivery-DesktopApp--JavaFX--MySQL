@@ -1,7 +1,6 @@
 package com.example.food_delivery.Controllers;
 
 import com.example.food_delivery.Classes.Delivery;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -45,19 +44,19 @@ public class RequestsInfo {
     private TableView<Delivery> table_2;
 
     @FXML
-    void changeStatus(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void changeStatus() throws SQLException, ClassNotFoundException {
         ChangeRequest(enter_id.getText().trim());
         UpdateTables();
     }
 
     @FXML
-    void buttonMenu(ActionEvent event) {
+    void buttonMenu() {
         menu.getScene().getWindow().hide();
         openNewScene("Start.fxml", "Доставка еды");
     }
 
     @FXML
-    void deleteSecondTable(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void deleteSecondTable() throws SQLException, ClassNotFoundException {
         DeleteAll();
         UpdateTables();
     }

@@ -2,7 +2,6 @@ package com.example.food_delivery.Controllers;
 
 import com.example.food_delivery.Classes.Delivery;
 import com.example.food_delivery.Classes.Food;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -44,7 +43,7 @@ public class NewRequest {
     private Label summ;
 
     @FXML
-    void firstDish(ActionEvent event) {
+    void firstDish() {
         Food.summa_1 = 0;
         Food.online = 1;
         Food.desc_1 = "Супы:";
@@ -52,17 +51,9 @@ public class NewRequest {
         openNewScene("FoodCategory.fxml", "Супы");
     }
 
-    @FXML
-    void fourthDish(ActionEvent event) {
-        Food.summa_4 = 0;
-        Food.online = 4;
-        Food.desc_4 = "\nНапитки:";
-        dish_4.getScene().getWindow().hide();
-        openNewScene("FoodCategory.fxml", "Напитки");
-    }
 
     @FXML
-    void secondDish(ActionEvent event) {
+    void secondDish() {
         Food.summa_2 = 0;
         Food.online = 2;
         Food.desc_2 = "\nВторые блюда:";
@@ -71,12 +62,22 @@ public class NewRequest {
     }
 
     @FXML
-    void thirdDish(ActionEvent event) {
+    void thirdDish() {
         Food.summa_3 = 0;
         Food.online = 3;
         Food.desc_3 = "\nДесерты:";
         dish_3.getScene().getWindow().hide();
         openNewScene("FoodCategory.fxml", "Десерты");
+    }
+
+
+    @FXML
+    void fourthDish() {
+        Food.summa_4 = 0;
+        Food.online = 4;
+        Food.desc_4 = "\nНапитки:";
+        dish_4.getScene().getWindow().hide();
+        openNewScene("FoodCategory.fxml", "Напитки");
     }
 
     @FXML
@@ -87,8 +88,8 @@ public class NewRequest {
     }
 
     @FXML
-    void makeOrder(ActionEvent event) throws SQLException, ClassNotFoundException {
-        if (!enter_name.getText().equals("") && !enter_telephone_number.getText().equals("")) {
+    void makeOrder() throws SQLException, ClassNotFoundException {
+        if (enter_name.getText().length() >= 4 && !enter_telephone_number.getText().equals("") && Food.total_summa != 0) {
             signUpNewReqest();
             Food.total_summa = 0;
             Food.summa_1 = 0;
@@ -108,7 +109,7 @@ public class NewRequest {
     }
 
     @FXML
-    void buttonMenu(ActionEvent event) {
+    void buttonMenu() {
         menu.getScene().getWindow().hide();
         openNewScene("Start.fxml", "Доставка еды");
         Food.total_summa = 0;

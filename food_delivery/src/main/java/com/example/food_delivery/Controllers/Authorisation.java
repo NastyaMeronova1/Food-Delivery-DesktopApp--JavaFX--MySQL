@@ -1,7 +1,6 @@
 package com.example.food_delivery.Controllers;
 
 import com.example.food_delivery.Classes.Food;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -28,20 +27,20 @@ public class Authorisation {
     private Button registration;
 
     @FXML
-    void buttonAuthorisation(ActionEvent event) throws NoSuchAlgorithmException, SQLException, ClassNotFoundException {
+    void buttonAuthorisation() throws NoSuchAlgorithmException, SQLException, ClassNotFoundException {
         String loginText = enter_login.getText().trim();
         String passText = enter_password.getText().trim();
         if (!loginText.equals("") && !passText.equals("")) loginUser(loginText, hash(passText));
     }
 
     @FXML
-    void HandleRegistration(ActionEvent event) {
+    void HandleRegistration() {
         registration.getScene().getWindow().hide();
         openNewScene("Registration.fxml", "Регистрация");
     }
 
     @FXML
-    void buttonMenu(ActionEvent event) {
+    void buttonMenu() {
         menu.getScene().getWindow().hide();
         openNewScene("Start.fxml", "Доставка еды");
     }

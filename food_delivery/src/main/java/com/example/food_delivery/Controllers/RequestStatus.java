@@ -2,7 +2,6 @@ package com.example.food_delivery.Controllers;
 
 import com.example.food_delivery.Classes.Delivery;
 import com.example.food_delivery.DataBase.DatabaseHandler;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -30,13 +29,13 @@ public class RequestStatus {
     private Button menu;
 
     @FXML
-    void buttonMenu(ActionEvent event) {
+    void buttonMenu() {
         menu.getScene().getWindow().hide();
         openNewScene("Start.fxml", "Доставка еды");
     }
 
     @FXML
-    void checkStatus(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void checkStatus() throws SQLException, ClassNotFoundException {
         DatabaseHandler.getRequestInfo(enter_number.getText().trim());
         label_name.setText("   " + Delivery.this_name);
         label_title.setText("   " + Delivery.this_summ);

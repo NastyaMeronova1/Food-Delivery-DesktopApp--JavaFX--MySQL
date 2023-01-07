@@ -1,7 +1,6 @@
 package com.example.food_delivery.Controllers;
 
 import com.example.food_delivery.Classes.Delivery;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,7 +14,7 @@ public class NewRequestId {
     private Label text;
 
     @FXML
-    void closeWindow(ActionEvent event) {
+    void closeWindow() {
         Stage stage = (Stage) close.getScene().getWindow();
         stage.close();
     }

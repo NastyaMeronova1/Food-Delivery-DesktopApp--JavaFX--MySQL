@@ -3,7 +3,6 @@ package com.example.food_delivery.Controllers;
 
 import com.example.food_delivery.Classes.Food;
 import com.example.food_delivery.Main;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -137,13 +136,13 @@ public class UserMenu {
     private Label price_6;
 
     @FXML
-    void buttonMenu(ActionEvent event) {
+    void buttonMenu() {
         menu.getScene().getWindow().hide();
         openNewScene("NewRequest.fxml", "Выбор категории");
     }
 
     @FXML
-    void makeOrder(ActionEvent event) {
+    void makeOrder() {
         double price1 = Double.parseDouble(price_1.getText()), price2 = Double.parseDouble(price_2.getText()), price3 = Double.parseDouble(price_3.getText()), price4 = Double.parseDouble(price_4.getText()), price5 = Double.parseDouble(price_5.getText()), price6 = Double.parseDouble(price_6.getText());
 
         String desc = "";

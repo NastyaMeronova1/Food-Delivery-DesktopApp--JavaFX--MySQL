@@ -2,7 +2,6 @@ package com.example.food_delivery.Controllers;
 
 import com.example.food_delivery.Classes.User;
 import com.example.food_delivery.DataBase.DatabaseHandler;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -39,25 +38,25 @@ public class AccountsInfo {
     private TableView<User> table;
 
     @FXML
-    void changeRoleToUser(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void changeRoleToUser() throws SQLException, ClassNotFoundException {
         Change(false, enter_login.getText().trim());
         UpdateTable();
     }
 
     @FXML
-    void changeRoleToWorker(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void changeRoleToWorker() throws SQLException, ClassNotFoundException {
         Change(true, enter_login.getText().trim());
         UpdateTable();
     }
 
     @FXML
-    void deleteUser(ActionEvent event) throws SQLException, ClassNotFoundException {
+    void deleteUser() throws SQLException, ClassNotFoundException {
         Delete(enter_id.getText().trim());
         UpdateTable();
     }
 
     @FXML
-    void buttonMenu(ActionEvent event) {
+    void buttonMenu() {
         menu.getScene().getWindow().hide();
         openNewScene("Start.fxml", "Доставка еды");
     }
